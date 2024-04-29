@@ -1,0 +1,71 @@
+\documentclass[1.75pt]{article} % use larger type; default would be 10pt
+\NeedsTeXFormat{LaTeX2e}
+\makeindex
+
+\RequirePackage[bitstream-charter,cal,expert]{mathdesign}
+\RequirePackage{charter}
+\RequirePackage{helvet}
+\RequirePackage{makeidx}
+\RequirePackage{latexsym}
+
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[margin=0.2in]{geometry}
+
+\usepackage{xspace}
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage[french]{babel}
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks,
+pagebackref,
+citecolor=medgreen,
+linkcolor=purplish,
+breaklinks,
+pdftex,
+bookmarks,
+plainpages=false,
+pdftitle={Re\c{c}u (petit format) pour le client YERITHCLIENT, YERITHENTREPRISE},
+pdfauthor={YERITHENTREPRISE (YERITHMAGASINIER)}
+}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+	#1 &
+	#2 \\
+\end{tabular*}}
+
+\setlength{\paperwidth}{2.97in}
+\setlength{\paperheight}{YERITHFACTURESMALLPAPERHEIGHT}
+
+
+\begin{document}
+\newgeometry{left=0.1in,right=0.1in,top=0.1in,bottom=0.1in}
+\emph{YERITHENTREPRISE} \\
+\emph{YERITHACTIVITESENTREPRISE} \\
+\emph{N\textsuperscript{o} de contribuable: YERITHCONTRIBUABLENR} \\
+\emph{T\'el: YERITHTELEPHONE} \\
+\emph{B.P.: YERITHBOITEPOSTALE YERITHVILLE}
+
+\vspace*{0.2cm}
+
+\hrule
+
+\headerrow
+{}
+{YERITHDATE}\\
+
+Re\c{c}u: YERITHNUMEROSORTIETRANSFERT\\
+Type de paiement: YERITHPAIEMENT\\
+Client: YERITHCLIENT\\
+Localisation: YERITHLOCALISATION_SORTIE\\
+Vendeur: YERITHVENDEUR
+\vspace*{0.2cm}
+
+%\hrule

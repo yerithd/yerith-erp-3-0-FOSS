@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=yerith-pgi-3.0-standalone
+Exec=/opt/yerith-erp-3-0-standalone/bin/yerith-erp-3-0-standalone.sh
+Icon=yerith-pgi-3-0
+Terminal=false
+Type=Application
+StartupNotify=true
+Hidden=false
+Categories=Utility;

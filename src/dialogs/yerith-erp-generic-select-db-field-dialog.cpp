@@ -1,0 +1,82 @@
+/*
+ * yerith-erp-generic-dialog.cpp
+ *      Author: Prof Dr Xavier Noundou
+ */
+
+#include "yerith-erp-generic-select-db-field-dialog.hpp"
+
+#include "src/yerith-erp-windows.hpp"
+
+#include <QtWidgets/QDesktopWidget>
+
+
+YerithERPGenericSelectDBFieldDialog::YerithERPGenericSelectDBFieldDialog(YerithERPWindows 		*allWindows,
+																		 YerithWindowsCommons 	*associatedWindow)
+:YerithPOSDialogCommons(""),
+ _associatedWindow(associatedWindow),
+ _currentPosition(new QPoint)
+{
+    QDesktopWidget &desktopWidget = _allWindows->desktopWidget();
+
+    YerithUtils::getCenterPosition(desktopWidget.width(),
+                                   desktopWidget.height(),
+                                   *this, *_currentPosition);
+
+    setFixedSize(width(), height());
+
+    setModal(true);
+}
+
+
+void YerithERPGenericSelectDBFieldDialog::show()
+{
+    move(*_currentPosition);
+
+    YerithPOSDialogCommons::show();
+}
+
+
+void YerithERPGenericSelectDBFieldDialog::closeEvent(QCloseEvent *closeEvent)
+{
+    /*
+     * Works fine only if this dialog is set as modal.
+     */
+    if (isVisible() 		&&
+    	0 != _associatedWindow)
+    {
+        _associatedWindow->set_PARAMETER_TABLE_COLUMN_ORDER();
+
+        YerithERPWindows *allWindows = YerithUtils::getAllWindows();
+
+        if (0 != allWindows)
+        {
+            YerithPOSUser *aUser = allWindows->getUser();
+
+            if (0 != aUser)
+            {
+                aUser->save_user_personal_PRINTING_PARAMETER_settings();
+            }
+        }
+
+        YerithPOSAdminWindowsCommons *ADMIN_ERP_WINDOWS_COMMONS_INSTANCE
+			= dynamic_cast<YerithPOSAdminWindowsCommons *>(_associatedWindow);
+
+        if (0 != ADMIN_ERP_WINDOWS_COMMONS_INSTANCE)
+        {
+            YerithSqlTableModel *curSEARCHSqlTableModel =
+            		_allWindows->_adminListerWindow->getCurSearchSqlTableModel();
+
+        	ADMIN_ERP_WINDOWS_COMMONS_INSTANCE
+				->CLOSE_SELECT_EXPORT_DB_DIALOG(curSEARCHSqlTableModel,
+												_allWindows->_adminListerWindow->GET_CURRENT_TABLEVIEW());
+        }
+        else
+        {
+        	_associatedWindow->rendreVisible(_associatedWindow->getCurStocksTableModel());
+        }
+    }
+}
+
+
+
+

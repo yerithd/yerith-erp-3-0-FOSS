@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=yr.db-runtime.verif
+Exec=/opt/yri-db-runtime-verif/bin/yri-db-runtime-verif
+User=root

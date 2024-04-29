@@ -1,0 +1,15 @@
+[Unit]
+Description=YERITH-ERP-PGI-3.0 SYSTEM DAEMON SERVICE
+After=mariadb.service
+
+[Service]
+Type=exec
+ExecStart=/etc/init.d/yerith-erp-3-0-system-daemon.sh start
+ExecStop=/etc/init.d/yerith-erp-3-0-system-daemon.sh stop
+ExecReload=/etc/init.d/yerith-erp-3-0-system-daemon.sh force-reload
+KillMode=mixed
+PrivateTmp=true
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

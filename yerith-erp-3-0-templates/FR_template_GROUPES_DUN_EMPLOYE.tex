@@ -1,0 +1,157 @@
+\documentclass[10pt,YERITHPAPERSPEC]{article} % use larger type; default would be 10pt
+\NeedsTeXFormat{LaTeX2e}
+\makeindex
+
+%---------------------------- PACKAGE INCLUSION -------------------------------
+% This group renders characters clearer and more precise
+
+\RequirePackage[bitstream-charter,cal,expert]{mathdesign}
+\RequirePackage{charter}
+\RequirePackage{helvet}
+\RequirePackage{makeidx}
+\RequirePackage{latexsym}
+
+\usepackage[french]{babel}
+
+\usepackage{geometry}
+\geometry{YERITHPAPERSPEC,
+		  %showframe=true,
+		  top=3.5em,
+		  left=3em,
+		  right=3em,
+		  bottom=3.39em
+		  }
+		  
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{xspace}
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{listings} % for lstset definitions
+\usepackage{url}
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{epsfig}
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage{booktabs}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\usepackage{amsmath}
+
+\usepackage[table]{xcolor}
+\definecolor{yerithColorYellow}{RGB}{254, 254, 0}
+\definecolor{yerithColorOrange}{RGB}{242, 161, 0}   
+\definecolor{yerithColorBlue}{RGB}{77 , 93 , 254}
+\definecolor{yerithColorRed}{RGB}{254, 48 , 48}
+\definecolor{yerithColorGray}{RGB}{198, 198, 198}
+\definecolor{yerithColorDarkgray}{RGB}{60, 60 , 60}
+\definecolor{yerithColorIndigo}{RGB}{83, 0, 125}
+\definecolor{yerithColorGreen}{RGB}{2  , 160, 70}
+\definecolor{forestgreen}{RGB}{2,160,70}    
+\definecolor{mediumblue}{RGB}{7,43,205}    
+\definecolor{firebrickred}{RGB}{178,34,34}
+\definecolor{listingray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgreen}{rgb}{0,0.35,0}
+\definecolor{medgreen}{rgb}{0,0.5,0}
+\definecolor{lightgreen}{rgb}{0.5,0.7,0.5}
+\definecolor{pmcolour}{rgb}{0.5,0.7,0.5}
+\definecolor{medgrey}{rgb}{0.6,0.6,0.6}
+\definecolor{purplish}{rgb}{0.4,0,0.6}
+\definecolor{brightred}{rgb}{1,0.2,0.2}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks,
+pagebackref,
+citecolor=medgreen,
+linkcolor=purplish,
+breaklinks,
+pdftex,
+bookmarks,
+plainpages=false,
+pdftitle={GROUPES D'APPARTENANCE DE L'EMPLOYÉ YERITHEMPLOYEHR, YERITHENTREPRISE},
+pdfauthor={YERITHENTREPRISE (YERITHNOMUTILISATEUR)}
+}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+	#1 &
+	#2 \\
+\end{tabular*}}
+
+\newcommand{\emphbold}[1]{\textbf{\emph{#1}}\xspace}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+
+\fancypagestyle{plain}{% copies "fancy" over "plain"
+  \fancyfoot[C]{\thepage}% you can add edits that won't affect "fancy" but only "plain"
+}
+
+\fancypagestyle{OnlyFirstPage}{%
+	\lhead{}
+	\rhead{}
+}
+
+\rhead{}
+\lhead{}
+\lfoot{}
+\rfoot{}
+\cfoot{\thepage\ DE \pageref{LastPage}}
+
+\begin{document}
+
+\bigskip
+
+\headerrow
+	{\emphbold{YERITHENTREPRISE}}
+	{\emph{\textbf{N\textsuperscript{o} de contribuable:} YERITHCONTRIBUABLENR}}
+\headerrow
+	{\emphbold{YERITHACTIVITESENTREPRISE}}
+	{\emph{\textbf{N\textsuperscript{o} de compte bancaire:} YERITHCOMPTEBANCAIRENR,}}
+\headerrow
+	{\emphbold{\'Email: YERITHEMAIL}}
+	{\emph{YERITHAGENCECOMPTEBANCAIRE}}
+\headerrow
+	{\emphbold{T\'el.: YERITHTELEPHONE}}
+	{}
+\headerrow
+	{\emphbold{B.P.: YERITHBOITEPOSTALE YERITHVILLE}}
+	{}
+	
+\hrule
+
+\headerrow
+	{}
+	{\textbf{YERITHDATE}}
+
+\vspace*{0.9cm}
+
+\headerrow
+{}
+{\textbf{YERITHEMPLOYE}}
+\headerrow
+{}
+{B.P.: EMPLOYEYERITHPOBOX EMPLOYEYERITHCITY}
+\headerrow
+{}
+{\'Email: EMPLOYEYERITHMAIL}
+\headerrow
+{}
+{T\'el.: EMPLOYEYERITHPHONE}
+
+\section*{YERITHSUBJECT}
+
+\textbf{Imprim\'e par:} YERITHNOMUTILISATEUR\\
+\textbf{SUCCURSALE DE GÉNÉRATION DU FICHIER:} YERITHSUCCURSALE\\
+\textbf{Heure d'impression:} YERITHHEUREDIMPRESSION
+
+\vspace{0.3cm} 
+

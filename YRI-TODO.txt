@@ -1,0 +1,24 @@
+1. incoporer des codes automatyiquement generes provenant
+   de yri_sd_runtime_verif_lang; Ainsi la compilation
+   manuelle sera allegee !
+
+1. NE PLUS RE-INTIALISER DES CHAMPS TEXTUELS
+   DE RECHERCHE conditionnelles lorsque DE
+   RETOUR A LA PAGE; MAIS PLUTOT D'ABORD 
+   CONSERVER DES VALEURS PRE-ENTREES PAR 
+   l'utilisateur de l'interface.
+
+2. NE PLUS RE-INTIALISER DES CHAMPS TEXTUELS
+   DE RECHERCHE conditionnelles lorsque reactive;
+   MAIS PLUTOT D'ABORD CONSERVER DES VALEURS
+   PRE-ENTREES PAR l'utilisateur de l'interface.
+   
+3. PERMETTRE LA VENTE DE CERTAINS STOCKS EN TANT QUE
+   SERVICE A 1 CLIENT, SANS AVOIR A OBLIGE LE CLIENT
+   A PAYE TOUT LE MONTANT A L'AVANCE.
+   
+4. CREER 1 PAGE DE MODIFICATIONS DES DETAILS D'1 
+   MARCHANDISE.
+   
+5. CHANGER LES yerith-line-edit DES CHAMPS TEXTUELS
+   DE RECHERCHE EN yerith-qcombo-box.

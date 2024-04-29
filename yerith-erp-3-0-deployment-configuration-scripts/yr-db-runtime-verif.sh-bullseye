@@ -1,0 +1,55 @@
+#! /bin/sh
+# /etc/init.d/yri-db-runtime-verif.sh
+#
+
+### BEGIN INIT INFO
+# Provides: yri-db-runtime-verif.sh
+# Required-Start:    $local_fs $syslog $remote_fs networking mysql
+# Required-Stop:     $local_fs $syslog $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Enable RUNTIME VERIFICATION system of ''Yerith-erp-3.0''
+### END INIT INFO
+
+export DISPLAY=:0.0
+
+kill_yri_db_runtime_verif_daemon()
+{
+		pgrep -a yri-db-runtime \
+				| grep "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif \
+				| awk '//{print $1}' | xargs kill -9 > /dev/null 2>&1
+}
+
+[ -f /etc/environment ] && . /etc/environment
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting script yri-db-runtime-verif.sh"
+    xvfb-run --auto-servernum "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif > /dev/null 2>&1 
+    ;;
+  stop)
+    echo "Stopping script yri-db-runtime-verif.sh"
+    kill_yri_db_runtime_verif_daemon
+    ;;
+  restart)
+    echo "Restarting script yri-db-runtime-verif.sh"
+    kill_yri_db_runtime_verif_daemon
+    xvfb-run --auto-servernum "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif > /dev/null 2>&1
+    ;;
+  force-reload)
+    echo "Force reload script yri-db-runtime-verif.sh"
+    kill_yri_db_runtime_verif_daemon
+    xvfb-run --auto-servernum "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif > /dev/null 2>&1
+    ;;
+  status)
+    echo "Check status of script yri-db-runtime-verif.sh"
+    pgrep -a yri-db-runtime | grep "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif 
+    ;;
+  *)
+    echo "Usage: /etc/init.d/yri-db-runtime-verif.sh {start|stop|restart|force-reload|status}"
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=yerith-erp-3-0-standalone-ENGLISH
+Exec=/opt/yerith-erp-3-0-standalone-ENGLISH/bin/yerith-erp-3-0-standalone-ENGLISH.sh
+Icon=yerith-erp-3-0
+Terminal=false
+Type=Application
+StartupNotify=true
+Hidden=false
+Categories=Utility;

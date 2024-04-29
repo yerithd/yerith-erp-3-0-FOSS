@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=yerith-erp-3.0-academic
+Exec=/opt/yerith-erp-3.0-academic/bin/yerith-erp-3.0-academic.sh
+Icon=yerith-erp-3-0
+Terminal=false
+Type=Application
+StartupNotify=true
+Hidden=false
+Categories=Utility;
